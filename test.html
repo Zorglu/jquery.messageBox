@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Test messageBox</title>
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="js/jquery.messagebox.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body>
+	<h1>Test MessageBox</h1>
+	<hr />
+	<button id="b-warning" class="btn btn-default">Msg Warning</button>
+	<button id="b-danger" class="btn btn-default">Msg Danger</button>
+	<button id="b-info" class="btn btn-default">Msg Info</button>
+	<button id="b-default" class="btn btn-default">Msg Default</button>
+	<button id="b-perso" class="btn btn-default">Msg Personnalisable</button>
+	<br />
+	<button id="b-question" class="btn btn-default">Alert Question</button>
+	<button id="b-exclamation" class="btn btn-default">Alert Exclamation</button>
+<script>
+
+function msgClose(ret){
+	console.log("msgClose -> retour %s", ret);
+}
+
+$( document ).ready(function() {
+
+	var msg = $("body").messageBox({
+		modal:true,
+		cbClose : msgClose,
+		autoClose: 0,
+		locale:{
+			textAutoClose: "Auto close in %d seconds"
+		}
+	});
+
+	//msg.data('messageBox').warning('Titre', 'Texte');
+	//msg.data('messageBox').danger('Titre', 'Texte');
+	//msg.data('messageBox').info('Titre', 'Texte');
+	//msg.data('messageBox').default('Titre', 'Texte');
+	/*
+	msg.data('messageBox').question('Question #1', 'Quelle était la couleur du cheval blanc d\'Henry IV ?', [{text:'Bleu',return:128}, {text:'blanc',return:129}, {text:'Annuler',return:130}]);
+	*/
+
+$("#b-warning").click(function(){
+	msg.data('messageBox').warning('MessageBox Warning', 'Exemple d\'une fenêtre de message de type warning');
+});
+
+$("#b-danger").click(function(){
+	msg.data('messageBox').danger('MessageBox Danger', 'Exemple d\'une fenêtre de message de type danger avec un contenu en HTML.<br /><h2>Contenu HTML</h2>', 10, false);
+});
+
+$("#b-info").click(function(){
+	msg.data('messageBox').info('MessageBox Info', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolore incidunt, voluptas eos vel quia modi obcaecati impedit cupiditate, accusamus officia totam culpa, aut ipsum, repellat vitae unde voluptatibus! Assumenda!');
+});
+
+$("#b-default").click(function(){
+	msg.data('messageBox').default('MessageBox Default', 'Test');
+});
+
+$("#b-perso").click(function(){
+	msg.data('messageBox').default('MessageBox Default', 'Contenu image :<br /><img src="http://crackberry.com/sites/crackberry.com/files/styles/large/public/topic_images/2013/ANDROID.png?itok=xhm7jaxS" width="200px" alt="img">');
+});
+
+$("#b-question").click(function(){
+	msg.data('messageBox').exclamation('Disque dur', 'Êtes-vous sûr de bien vouloir vouloir ?.<br /><em>Si je puis dire.</em>', [{text:'Oui',return:128}, {text:'Non',return:127},{text:'C\'est a moi que tu me cause ?',return:126}]);
+});
+
+$("#b-exclamation").click(function(){
+	msg.data('messageBox').exclamation('Disque dur', 'Le disque est plein.<br /><em>Pensez à le nettoyer de temps en temps.</em>', [{text:'Merci',return:128}]);
+});
+
+	return 0;
+});
+</script>
+</body>
+</html>
