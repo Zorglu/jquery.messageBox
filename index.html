@@ -46,14 +46,40 @@ $ git checkout gh-pages
 <h3>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
 
-<p>First, load jQuery and the plugin:
-`</p>
+<p>First, load jQuery and the plugin in your HTML:</p>
+
+<p>`</p>
 
 
 
 
 
 <p>`</p>
+
+<p>Load all CSS needed :</p>
+
+<p><code>
+&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"&gt;
+&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"&gt;
+</code>
+The css file will be loaded by the plugin.</p>
+
+<h3>
+<a id="plugin-initialization" class="anchor" href="#plugin-initialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Plugin initialization</h3>
+
+<p><code>
+var msg = $("body").messageBox({});
+</code></p>
+
+<h3>
+<a id="plugin-usage" class="anchor" href="#plugin-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Plugin usage</h3>
+
+<p>Show a simple alertBox
+<code>
+$("#b-warning").click(function(){
+    msg.data('messageBox').warning('MessageBox Warning', 'jquery.messageBox is good for you !');
+});
+</code></p>
       </section>
     </div>
 
