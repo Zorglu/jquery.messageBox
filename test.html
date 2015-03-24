@@ -38,41 +38,33 @@ $( document ).ready(function() {
 		}
 	});
 
-	//msg.data('messageBox').warning('Titre', 'Texte');
-	//msg.data('messageBox').danger('Titre', 'Texte');
-	//msg.data('messageBox').info('Titre', 'Texte');
-	//msg.data('messageBox').default('Titre', 'Texte');
-	/*
-	msg.data('messageBox').question('Question #1', 'Quelle était la couleur du cheval blanc d\'Henry IV ?', [{text:'Bleu',return:128}, {text:'blanc',return:129}, {text:'Annuler',return:130}]);
-	*/
+	$("#b-warning").click(function(){
+		msg.data('messageBox').warning('MessageBox Warning', 'Exemple d\'une fenêtre de message de type warning');
+	});
 
-$("#b-warning").click(function(){
-	msg.data('messageBox').warning('MessageBox Warning', 'Exemple d\'une fenêtre de message de type warning');
-});
+	$("#b-danger").click(function(){
+		msg.data('messageBox').danger('MessageBox Danger', 'Exemple d\'une fenêtre de message de type danger avec un contenu en HTML.<br /><h2>Contenu HTML</h2>', 10, false);
+	});
 
-$("#b-danger").click(function(){
-	msg.data('messageBox').danger('MessageBox Danger', 'Exemple d\'une fenêtre de message de type danger avec un contenu en HTML.<br /><h2>Contenu HTML</h2>', 10, false);
-});
+	$("#b-info").click(function(){
+		msg.data('messageBox').info('MessageBox Info', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolore incidunt, voluptas eos vel quia modi obcaecati impedit cupiditate, accusamus officia totam culpa, aut ipsum, repellat vitae unde voluptatibus! Assumenda!');
+	});
 
-$("#b-info").click(function(){
-	msg.data('messageBox').info('MessageBox Info', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet dolore incidunt, voluptas eos vel quia modi obcaecati impedit cupiditate, accusamus officia totam culpa, aut ipsum, repellat vitae unde voluptatibus! Assumenda!');
-});
+	$("#b-default").click(function(){
+		msg.data('messageBox').default('MessageBox Default', 'Test');
+	});
 
-$("#b-default").click(function(){
-	msg.data('messageBox').default('MessageBox Default', 'Test');
-});
+	$("#b-perso").click(function(){
+		msg.data('messageBox').default('MessageBox Default', 'Contenu image :<br /><img src="http://crackberry.com/sites/crackberry.com/files/styles/large/public/topic_images/2013/ANDROID.png?itok=xhm7jaxS" width="200px" alt="img">');
+	});
 
-$("#b-perso").click(function(){
-	msg.data('messageBox').default('MessageBox Default', 'Contenu image :<br /><img src="http://crackberry.com/sites/crackberry.com/files/styles/large/public/topic_images/2013/ANDROID.png?itok=xhm7jaxS" width="200px" alt="img">');
-});
+	$("#b-question").click(function(){
+		msg.data('messageBox').exclamation('Disque dur', 'Êtes-vous sûr de bien vouloir vouloir ?.<br /><em>Si je puis dire.</em>', [{text:'Oui',return:128}, {text:'Non',return:127},{text:'C\'est a moi que tu me cause ?',return:126}]);
+	});
 
-$("#b-question").click(function(){
-	msg.data('messageBox').exclamation('Disque dur', 'Êtes-vous sûr de bien vouloir vouloir ?.<br /><em>Si je puis dire.</em>', [{text:'Oui',return:128}, {text:'Non',return:127},{text:'C\'est a moi que tu me cause ?',return:126}]);
-});
-
-$("#b-exclamation").click(function(){
-	msg.data('messageBox').exclamation('Disque dur', 'Le disque est plein.<br /><em>Pensez à le nettoyer de temps en temps.</em>', [{text:'Merci',return:128}]);
-});
+	$("#b-exclamation").click(function(){
+		msg.data('messageBox').exclamation('Disque dur', 'Le disque est plein.<br /><em>Pensez à le nettoyer de temps en temps.</em>', [{text:'Merci',return:128}]);
+	});
 
 	return 0;
 });
